@@ -1,0 +1,14 @@
+Git Commands:
+Once time in each laptop
+step1: Git software download (https://git-scm.com/download/win)
+step2: Open new or exiting folder cmd / terminal 
+step3: > git config --global user.name "naveedtrainer"
+step4: > git config --global user.email "naveed@techloset.com"
+
+Every new project
+step5: > git init
+
+Every New changes - repeat
+step6: > git add -A
+step7: > git commit -m "while loop added"
+step8: > git push origin master
