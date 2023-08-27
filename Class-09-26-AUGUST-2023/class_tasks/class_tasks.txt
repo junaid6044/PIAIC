@@ -1,0 +1,16 @@
+https://github.com/panaverse/learn-typescript
+
+
+
+create a todo application CRUD
+{
+    id: number(specific)
+    test: string
+}
+
+
+create a todo application CRUD with parameter
+{
+    id: number(specific)
+    test: string
+}
