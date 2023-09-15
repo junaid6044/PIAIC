@@ -1,14 +1,15 @@
-var apple = {
+"use strict";
+const apple = {
     name: "Apple",
     color: "Red",
     taste: "Sweet and juicy"
 };
-var banana = {
+const banana = {
     name: "Banana",
     color: "Yellow",
     taste: "Sweet"
 };
-var mango = {
+const mango = {
     name: "Mango",
     color: "Yellow",
     taste: "Sweet and juicy"

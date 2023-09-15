@@ -1,16 +1,18 @@
-const apple: { name: string; color: string; taste: string; } = {
+type fruitType = { name: string; color: string; taste: string; }
+
+const apple: fruitType = {
   name: "Apple",
   color: "Red",
   taste: "Sweet and juicy"
 };
 
-const banana: { name: string; color: string; taste: string; } = {
+const banana: fruitType = {
   name: "Banana",
   color: "Yellow",
   taste: "Sweet"
 };
 
-const mango: { name: string; color: string; taste: string; } = {
+const mango: fruitType = {
   name: "Mango",
   color: "Yellow",
   taste: "Sweet and juicy"
