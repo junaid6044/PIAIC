@@ -7,7 +7,7 @@ async function calculator() {
       type: 'input',
       name: 'num1',
       message: 'Enter the first number:',
-      validate: (value: string) => !isNaN(Number(value)),
+      validate: (value: string) => !isNaN(parseFloat(value)) || 'Please enter a valid number',
     },
     {
       type: 'list',
@@ -19,14 +19,14 @@ async function calculator() {
       type: 'input',
       name: 'num2',
       message: 'Enter the second number:',
-      validate: (value: string) => !isNaN(Number(value)),
-      when: (answers: { operation: string }) => answers.operation !== 'Exponent',
+      validate: (value: string) => !isNaN(parseFloat(value)) || 'Please enter a valid number',
+      when: (answers: { num1: number; num2: number; exponent: number; operation: string }) => answers.operation !== 'Exponent',
     },
     {
       type: 'input',
       name: 'exponent',
       message: 'Enter the exponent:',
-      validate: (value: string) => !isNaN(Number(value)),
+      validate: (value: string) => !isNaN(parseFloat(value)) || 'Please enter a valid number',
       when: (answers: { operation: string }) => answers.operation === 'Exponent',
     },
   ];
