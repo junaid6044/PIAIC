@@ -1,3 +1,4 @@
+#! /usr/bin/env node
 import inquirer from 'inquirer';
 const users = {
     '1234567890': { pin: '1234', balance: 1000, transactions: [] },
