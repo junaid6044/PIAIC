@@ -1,0 +1,7 @@
+https://blog.shahednasser.com/how-to-create-a-npx-tool/
+
+
+
+deploy atm task in class
+
+npx atm-panaverse-batch-50-m
