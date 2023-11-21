@@ -1,3 +1,4 @@
+import Link from 'next/link'
 
 export default function Footer() {
   return (
@@ -14,8 +15,8 @@ export default function Footer() {
         <i className="fab fa-twitter"></i>
         <i className="fab fa-linkedin"></i>
       </div>
-      <p>Made with <i className="fas fa-heart"></i> by <a href="/">Muhammad Junaid</a></p>
-      <p>Copyright © 2021 <a href="/">Xplore Skill</a>. All Rights Reserved</p>
+      <p>Made with <i className="fas fa-heart"></i> by <Link href="/">Muhammad Junaid</Link></p>
+      <p>Copyright © 2021 <Link href="/">Xplore Skill</Link>. All Rights Reserved</p>
     </section>
   )
 }

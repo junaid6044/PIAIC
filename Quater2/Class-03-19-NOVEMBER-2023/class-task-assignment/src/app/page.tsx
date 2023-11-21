@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import Image from 'next/image'
 import Header from '@/compontents/header'
 import Footer from '@/compontents/footer'
@@ -21,7 +22,7 @@ export default function Home() {
           <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit consequuntur corrupti sapiente aut porro
             <br /> esse blanditiis in quae perspiciatis quo.
           </p>
-          <a href="about" className="hero_btn">Visit Us To Know More</a>
+          <Link href="/about" className="hero_btn">Visit Us To Know More</Link>
         </div>
       </section>
 
@@ -159,7 +160,7 @@ export default function Home() {
 
       <section className="cta">
         <h1>GET READY FOR A BRIGHT FUTURE</h1>
-        <a href="contact" className="hero_btn">CONTACT US</a>
+        <Link href="/contact" className="hero_btn">CONTACT US</Link>
       </section>
 
       <Footer />
