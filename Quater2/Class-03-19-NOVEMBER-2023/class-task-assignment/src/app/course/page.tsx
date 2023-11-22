@@ -49,19 +49,19 @@ export default function Course() {
 
         <div className="row">
           <div className="facilities-col">
-            <Image src={course1} alt="course1"/>
+            <Image src={course1} alt="course1" width={335} height={223} />
             <h3>Web Development</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio omnis asperiores atque aperiam.
             </p>
           </div>
           <div className="facilities-col">
-          <Image src={course2} alt="course2"/>
+            <Image src={course2} alt="course2" width={335} height={223} />
             <h3>Artificial Intelligence</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio omnis asperiores atque aperiam.
             </p>
           </div>
           <div className="facilities-col">
-          <Image src={course3} alt="course3"/>
+            <Image src={course3} alt="course3" width={335} height={223} />
             <h3>Data Science</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio omnis asperiores atque aperiam.
             </p>

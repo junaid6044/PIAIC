@@ -16,7 +16,7 @@ export default function About() {
           <div className="blog-left">
             <h2>Our Certificate & Online Program</h2>
             <h5>Aug 1, 2021</h5>
-            <Image src={post} alt="post"/>
+            <Image src={post} alt="post" width={702} height={469} />
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium dolor consequatur, nobis quae obcaecati delectus at aspernatur, placeat quasi iure mollitia. Repellendus a ut nostrum dolore velit odit cumque, quos doloribus sint id aperiam eius aliquam quo modi sequi rem quia exercitationem laborum, ratione expedita! Deleniti velit officia incidunt illum.</p>
             <br />
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore corrupti blanditiis deserunt

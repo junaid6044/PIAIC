@@ -1,24 +1,31 @@
+'use client'
+import { useRef } from "react";
 import Link from 'next/link'
 
 export default function Header() {
-  // const navLinks = document.getElementById("navLinks")!;
+  const navLinksRef = useRef<HTMLDivElement>(null);
 
-  // const showMenu = () => {
-  //   navLinks.style.right = "0";
-  // };
+  function hideMenu() {
+    const navLinks = navLinksRef.current;
+    if (navLinks) {
+      navLinks.style.right = "-200px";
+    }
+  }
 
-  // const hideMenu = () => {
-  //   navLinks.style.right = "-200px";
-  // };
+  function showMenu() {
+    const navLinks = navLinksRef.current;
+    if (navLinks) {
+      navLinks.style.right = "0";
+    }
+  }
 
   return (
     <nav>
       <Link href="/" className="logo">Xplore
         <i className="fab fa-staylinked"></i>kill
       </Link>
-      <div className="nav-links" id="navLinks">
-        {/* <i className="fa fa-times" onClick={hideMenu}></i> */}
-        <i className="fa fa-times"></i>
+      <div className="nav-links" id="navLinks" ref={navLinksRef}>
+        <i className="fa fa-times" onClick={hideMenu}></i>
         <ul>
         <li><Link href="/">Home</Link></li>
         <li><Link href="/course">Course</Link></li>
@@ -27,8 +34,7 @@ export default function Header() {
         <li><Link href="/contact">Contact</Link></li>
         </ul>
       </div>
-      <i className="fa fa-bars"></i>
-      {/* <i className="fa fa-bars" onClick={showMenu}></i> */}
+      <i className="fa fa-bars" onClick={showMenu}></i>
     </nav>
   )
 }

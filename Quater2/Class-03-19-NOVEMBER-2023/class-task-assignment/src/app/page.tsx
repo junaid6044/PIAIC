@@ -69,19 +69,19 @@ export default function Home() {
 
         <div className="row">
           <div className="campus-col">
-            <Image src={Campus1} alt="Campus1"/>
+            <Image src={Campus1} alt="Campus1" width={345} height={230} />
             <div className="layer">
               <h3>DELHI</h3>
             </div>
           </div>
           <div className="campus-col">
-          <Image src={Campus2} alt="Campus2"/>
+            <Image src={Campus2} alt="Campus2" width={345} height={230} />
             <div className="layer">
               <h3>HYDERABAD</h3>
             </div>
           </div>
           <div className="campus-col">
-          <Image src={Campus3} alt="Campus3"/>
+            <Image src={Campus3} alt="Campus3" width={345} height={230} />
             <div className="layer">
               <h3>MUMBAI</h3>
             </div>
@@ -99,17 +99,17 @@ export default function Home() {
 
         <div className="row">
           <div className="facilities-col">
-          <Image src={libary} alt="libary"/>
+            <Image src={libary} alt="libary" width={345} height={230} />
             <h3>Best Libary</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio omnis asperiores atque aperiam.</p>
           </div>
           <div className="facilities-col">
-            <Image src={playground} alt="playground"/>
+            <Image src={playground} alt="playground" width={345} height={230} />
             <h3>Athletics</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio omnis asperiores atque aperiam.</p>
           </div>
           <div className="facilities-col">
-            <Image src={food} alt="food"/>
+            <Image src={food} alt="food" width={345} height={230} />
             <h3>Tasty and Healthy Food</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio omnis asperiores atque aperiam.</p>
           </div>
@@ -126,7 +126,7 @@ export default function Home() {
 
         <div className="row">
           <div className="testimonials-col">
-            <Image src={user} alt="user"/>
+            <Image src={user} alt="user" width={60} height={60}/>
             <div>
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi maiores in nostrum rerum voluptatem
                 praesentium veritatis alias omnis voluptate nisi aperiam, voluptatum quibusdam itaque a
@@ -141,7 +141,7 @@ export default function Home() {
             </div>
           </div>
           <div className="testimonials-col">
-            <Image src={user} alt="user"/>
+            <Image src={user} alt="user" width={60} height={60}/>
             <div>
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi maiores in nostrum rerum voluptatem
                 praesentium veritatis alias omnis voluptate nisi aperiam, voluptatum quibusdam itaque a
