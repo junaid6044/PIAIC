@@ -4,16 +4,15 @@ import Link from 'next/link'
 
 interface CardProps {
   data: {
-    id: number;
-    imgSrc: string;
-    imgText: string;
-    title: string;
-    text: string;
-    link: string;
-  };
+    id: number,
+    imgSrc: string,
+    title: string,
+    text: string,
+    link: string,
+  }
 }
 
-export default function Card(props) {
+export default function Card(props:CardProps) {
   return (
     <div className="rounded overflow-hidden shadow-lg">
       <Image
