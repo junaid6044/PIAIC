@@ -12,6 +12,7 @@ interface BlogDetailProps {
 }
 
 export default function blogdetail(props:BlogDetailProps) {
+  const htmlContent = props.data.text
   return (
     <div className="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-12 relative">
       <div className="mb-8 max-w-3xl mx-auto">
@@ -30,7 +31,7 @@ export default function blogdetail(props:BlogDetailProps) {
       </div>
 
       <div className="max-w-3xl mx-auto mt-8">
-        <p className="text-gray-500 text-lg">{props.data.text}</p>
+        <div className="text-gray-500 text-lg" dangerouslySetInnerHTML={{ __html: htmlContent }} />
       </div>
     </div>
   )
