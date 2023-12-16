@@ -1,4 +1,5 @@
 'use client'
+import React from 'react';
 import { useState } from "react"
 import Button from "./components/Button"
 import { studentsType } from "./types/types"
@@ -158,8 +159,8 @@ export default function Home() {
               <tbody>
                 {students.map((user, index) => {
                   return (
-                    <>
-                      <tr key={index} className={index % 2 !== 0 ? "bg-gray-100" : ""}>
+                    <React.Fragment key={index}>
+                      <tr className={index % 2 !== 0 ? "bg-gray-100" : ""}>
                         <td className="px-5 py-5 border-b border-gray-200 text-sm">
                           <p className="text-gray-900 whitespace-no-wrap">{user.id}</p>
                         </td>
@@ -182,7 +183,7 @@ export default function Home() {
                           <Button click={() => onClickHandle(user.id)} />
                         </td>
                       </tr>
-                    </>
+                    </React.Fragment>
                   )
                 })}
               </tbody>
