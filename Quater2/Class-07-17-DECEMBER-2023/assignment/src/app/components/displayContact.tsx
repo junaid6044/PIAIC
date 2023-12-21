@@ -9,7 +9,13 @@ export default function DisplayContact(props:{contactData: contactTypes[]}) {
         <thead>
           <tr className="bg-gray-300">
             <th className="px-5 py-6 border-b-2 border-gray-200 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
-              Name
+              First Name
+            </th>
+            <th className="px-5 py-6 border-b-2 border-gray-200 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
+              last Name
+            </th>
+            <th className="px-5 py-6 border-b-2 border-gray-200 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
+              Age
             </th>
             <th className="px-5 py-6 border-b-2 border-gray-200 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
               Email
@@ -20,6 +26,9 @@ export default function DisplayContact(props:{contactData: contactTypes[]}) {
             <th className="px-5 py-6 border-b-2 border-gray-200 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
               Message
             </th>
+            <th className="px-5 py-6 border-b-2 border-gray-200 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
+              Created At
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -28,7 +37,13 @@ export default function DisplayContact(props:{contactData: contactTypes[]}) {
                 <React.Fragment key={index}>
                   <tr className={"bg-gray-100"}>
                     <td className="px-5 py-5 border-b border-gray-200 text-sm">
-                      <p className="text-gray-900 whitespace-no-wrap">{item.name}</p>
+                      <p className="text-gray-900 whitespace-no-wrap">{item.firstName}</p>
+                    </td>
+                    <td className="px-5 py-5 border-b border-gray-200 text-sm">
+                      <p className="text-gray-900 whitespace-no-wrap">{item.lastName}</p>
+                    </td>
+                    <td className="px-5 py-5 border-b border-gray-200 text-sm">
+                      <p className="text-gray-900 whitespace-no-wrap">{item.age}</p>
                     </td>
                     <td className="px-5 py-5 border-b border-gray-200 text-sm">
                       <p className="text-gray-900 whitespace-no-wrap">{item.email}</p>
@@ -38,6 +53,9 @@ export default function DisplayContact(props:{contactData: contactTypes[]}) {
                     </td>
                     <td className="px-5 py-5 border-b border-gray-200 text-sm">
                       <p className="text-gray-900 whitespace-no-wrap">{item.message}</p>
+                    </td>
+                    <td className="px-5 py-5 border-b border-gray-200 text-sm">
+                      <p className="text-gray-900 whitespace-no-wrap">{item.createdOn}</p>
                     </td>
                   </tr>
                 </React.Fragment>

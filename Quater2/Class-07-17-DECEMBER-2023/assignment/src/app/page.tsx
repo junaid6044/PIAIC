@@ -1,17 +1,34 @@
 "use client"
 import { useState } from "react"
+import React from 'react';
+import * as yup from "yup"
 import Input from './components/Input'
 import { contactTypes } from './types/CommonTypes';
 import DisplayContact from "./components/displayContact"
 
 export default function Home() {
-  const [contactInfo, setContactInfo] = useState<contactTypes>({
-    name: "",
-    email: "",
-    phone: null,
-    message: ""
+
+  const contactInfoSchema = yup.object().shape({
+    firstName: yup.string().required().min(5).max(10),
+    lastName: yup.string().required().min(5).max(10),
+    email: yup.string().email().required(),
+    phone: yup.number().required().min(11).integer(),
+    age: yup.number().required().min(2).max(3).positive().integer(),
+    message: yup.string().required(),
+    createdOn: yup.date().default(() => new Date()),
   })
 
+  const [contactInfo, setContactInfo] = useState<contactTypes>({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: 0,
+    age: 0,
+    message: "",
+    createdOn: ""
+  })
+
+  const [errors, setError ] = useState<string[]>([])
   const [contactList, setContactList] = useState<contactTypes[]>([])
 
   const onChangeHandler = (e:any) => {
@@ -22,35 +39,57 @@ export default function Home() {
     setContactInfo(userDetails)
   }
 
-  const onClickHandler = (e:any) => {
-    let newContactList: contactTypes[] = [...contactList, contactInfo];
-    setContactList(newContactList);
-    setContactInfo({
-      name: contactInfo.name,
-      email: contactInfo.email,
-      phone: contactInfo.phone,
-      message: contactInfo.message
-    })
+  const onClickHandler =  async (e:any) => {
+    try {
+      const result = await contactInfoSchema.validate(contactInfo)
+      if (!result) {
+        return 
+      }
+      
+      setError([])
+      let newContactList: contactTypes[] = [...contactList, contactInfo];
+      setContactList(newContactList);
+      setContactInfo({
+        firstName: contactInfo.firstName,
+        lastName: contactInfo.lastName,
+        email: contactInfo.email,
+        age: contactInfo.age,
+        phone: contactInfo.phone,
+        message: contactInfo.message,
+        createdOn: contactInfo.createdOn
+      })
+    }
+    catch (err:any) {
+      setError(err.errors)
+    }
   }
   // const isContactInfoEmpty = Object.values(contactInfo).every(value => value === null || value === "");
   return (
     <div className="flex justify-center items-center">
-      <div className="w-2/4">
+      <div className="">
         <div className="text-black text-center m-6 text-xl z-200"> Contact Us </div>
         <div className="text-white m-6 z-200">
-          <div className="flex mb-4 m-2">
+          <div className="">
             <Input attr={{
               inputType: "text",
-              placeholder: "Name",
-              name: "name",
-              id: "name",
-              value: contactInfo.name,
+              placeholder: "First Name",
+              name: "firstName",
+              id: "firstName",
+              value: contactInfo.firstName,
               autoComplete: "off",
               required: true,
               fun: onChangeHandler
             }}/>
-          </div>
-          <div className="flex mb-4 m-2">
+            <Input attr={{
+              inputType: "text",
+              placeholder: "Last Name",
+              name: "lastName",
+              id: "lastName",
+              value: contactInfo.lastName,
+              autoComplete: "off",
+              required: true,
+              fun: onChangeHandler
+            }}/>
             <Input attr={{
               inputType: "email",
               placeholder: "E-mail",
@@ -61,8 +100,16 @@ export default function Home() {
               required: true,
               fun: onChangeHandler
             }}/>
-          </div>
-          <div className="flex mb-4 m-2">
+            <Input attr={{
+              inputType: "number",
+              placeholder: "age",
+              name: "age",
+              id: "age",
+              value: contactInfo.age,
+              autoComplete: "tel",
+              required: true,
+              fun: onChangeHandler
+            }}/>
             <Input attr={{
               inputType: "tel",
               placeholder: "Phone",
@@ -73,8 +120,6 @@ export default function Home() {
               required: true,
               fun: onChangeHandler
             }}/>
-          </div>
-          <div className="flex mb-4 m-2">
             <Input attr={{
               inputType: "textarea",
               placeholder: "Type your message",
@@ -85,6 +130,15 @@ export default function Home() {
               fun: onChangeHandler
             }}/>
           </div>
+          {errors.map((item, index) => {
+            return (
+              <React.Fragment key={index}>
+                <div style={{color:"red"}}>
+                  <h1>{item}</h1>
+                </div>
+              </React.Fragment>
+            )
+          })}
 
           <div className="flex justify-end m-2">
             <button onClick={onClickHandler} className="bg-transparent hover:bg-teal-800 text-teal-800 font-semibold hover:text-white py-2 px-10 border border-teal-800 hover:border-transparent rounded-full">Submit</button>

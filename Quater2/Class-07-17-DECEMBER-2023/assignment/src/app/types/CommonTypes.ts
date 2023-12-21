@@ -11,9 +11,11 @@ export type InputProps = {
 
 
 export type contactTypes = {
-  name: string,
+  firstName: string,
+  lastName: string,
   email: string,
+  age: number,
   phone: number | null,
-  message: string
-
+  message: string,
+  createdOn: string
 }
