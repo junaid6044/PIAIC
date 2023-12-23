@@ -11,9 +11,14 @@ export default function Home() {
   const contactInfoSchema = yup.object().shape({
     firstName: yup.string().required().min(5).max(10),
     lastName: yup.string().required().min(5).max(10),
+    fatherName: yup.string().required().min(5).max(10),
+    education: yup.string().required(),
     email: yup.string().email().required(),
     phone: yup.number().required().min(11).integer(),
-    age: yup.number().required().min(2).max(3).positive().integer(),
+    age: yup.number().required().min(18).max(30).positive().integer(),
+    cnic: yup.string().required(),
+    country: yup.string().required(),
+    address: yup.string().required(),
     message: yup.string().required(),
     createdOn: yup.date().default(() => new Date()),
   })
@@ -21,11 +26,16 @@ export default function Home() {
   const [contactInfo, setContactInfo] = useState<contactTypes>({
     firstName: "",
     lastName: "",
+    fatherName: "",
+    education: "",
     email: "",
     phone: 0,
     age: 0,
+    cnic: "",
+    country: "",
+    address: "",
     message: "",
-    createdOn: ""
+    createdOn: new Date()
   })
 
   const [errors, setError ] = useState<string[]>([])
@@ -50,25 +60,29 @@ export default function Home() {
       let newContactList: contactTypes[] = [...contactList, contactInfo];
       setContactList(newContactList);
       setContactInfo({
-        firstName: contactInfo.firstName,
-        lastName: contactInfo.lastName,
-        email: contactInfo.email,
-        age: contactInfo.age,
-        phone: contactInfo.phone,
-        message: contactInfo.message,
-        createdOn: contactInfo.createdOn
+        firstName: "",
+        lastName: "",
+        fatherName: "",
+        education: "",
+        email: "",
+        phone: 0,
+        age: 0,
+        cnic: "",
+        country: "",
+        address: "",
+        message: "",
+        createdOn: new Date()
       })
     }
     catch (err:any) {
       setError(err.errors)
     }
   }
-  // const isContactInfoEmpty = Object.values(contactInfo).every(value => value === null || value === "");
   return (
     <div className="flex justify-center items-center">
       <div className="">
         <div className="text-black text-center m-6 text-xl z-200"> Contact Us </div>
-        <div className="text-white m-6 z-200">
+        <div className="text-white m-6 z-200 text-center">
           <div className="">
             <Input attr={{
               inputType: "text",
@@ -91,6 +105,26 @@ export default function Home() {
               fun: onChangeHandler
             }}/>
             <Input attr={{
+              inputType: "text",
+              placeholder: "Father Name",
+              name: "fatherName",
+              id: "fatherName",
+              value: contactInfo.fatherName,
+              autoComplete: "off",
+              required: true,
+              fun: onChangeHandler
+            }}/>
+            <Input attr={{
+              inputType: "text",
+              placeholder: "Education",
+              name: "education",
+              id: "education",
+              value: contactInfo.education,
+              autoComplete: "off",
+              required: true,
+              fun: onChangeHandler
+            }}/>
+            <Input attr={{
               inputType: "email",
               placeholder: "E-mail",
               name: "email",
@@ -106,7 +140,7 @@ export default function Home() {
               name: "age",
               id: "age",
               value: contactInfo.age,
-              autoComplete: "tel",
+              autoComplete: "off",
               required: true,
               fun: onChangeHandler
             }}/>
@@ -117,6 +151,33 @@ export default function Home() {
               id: "phone",
               value: contactInfo.phone,
               autoComplete: "tel",
+              required: true,
+              fun: onChangeHandler
+            }}/>
+            <Input attr={{
+              inputType: "text",
+              placeholder: "CNIC",
+              name: "cnic",
+              id: "cnic",
+              value: contactInfo.cnic,
+              required: true,
+              fun: onChangeHandler
+            }}/>
+            <Input attr={{
+              inputType: "text",
+              placeholder: "Country",
+              name: "country",
+              id: "country",
+              value: contactInfo.country,
+              required: true,
+              fun: onChangeHandler
+            }}/>
+            <Input attr={{
+              inputType: "text",
+              placeholder: "Address",
+              name: "address",
+              id: "address",
+              value: contactInfo.address,
               required: true,
               fun: onChangeHandler
             }}/>
@@ -144,7 +205,6 @@ export default function Home() {
             <button onClick={onClickHandler} className="bg-transparent hover:bg-teal-800 text-teal-800 font-semibold hover:text-white py-2 px-10 border border-teal-800 hover:border-transparent rounded-full">Submit</button>
           </div>
         </div>
-        {/* {!isContactInfoEmpty && <DisplayContact contactData={contactList} />} */}
         <DisplayContact contactData={contactList} />
       </div>
     </div>

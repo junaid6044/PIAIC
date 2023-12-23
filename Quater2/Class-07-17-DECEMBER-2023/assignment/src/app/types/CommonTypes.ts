@@ -9,13 +9,17 @@ export type InputProps = {
   fun: (e:any) => void
 }
 
-
 export type contactTypes = {
   firstName: string,
   lastName: string,
+  fatherName: string,
+  education: string,
   email: string,
   age: number,
-  phone: number | null,
+  phone: number,
+  cnic: string,
+  country: string,
+  address: string,
   message: string,
-  createdOn: string
+  createdOn: Date
 }
