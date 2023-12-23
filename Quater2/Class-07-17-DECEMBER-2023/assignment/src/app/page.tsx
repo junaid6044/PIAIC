@@ -81,7 +81,7 @@ export default function Home() {
   return (
     <div className="flex justify-center items-center">
       <div className="">
-        <div className="text-black text-center m-6 text-xl z-200"> Contact Us </div>
+        <div className="text-black text-center m-6 text-xl z-200"> User Info </div>
         <div className="text-white m-6 z-200 text-center">
           <div className="">
             <Input attr={{
