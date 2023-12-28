@@ -2,7 +2,7 @@
 import { BlogType } from '../../types/commonTypes';
 import { BlogModalProps } from '../../types/componentsTypes';
 import * as yup from "yup"
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaTimes } from 'react-icons/fa';
 
 const BlogModal = ({ isOpen, onClose, onAddBlog, onUpdateBlog, blog }: BlogModalProps) => {
@@ -23,6 +23,10 @@ const BlogModal = ({ isOpen, onClose, onAddBlog, onUpdateBlog, blog }: BlogModal
 		date: "",
 	})
 
+	useEffect(() => {
+    setBlogDetail(blog.id ? blog : { id: "", amount: 0, category: "", note: "", date: "" });
+  }, [blog]);
+
 	const [amount, setAmount] = useState<number>(0);
 	const [category, setCategory] = useState<string>('');
 	const [note, setNote] = useState<string>('');
@@ -31,22 +35,48 @@ const BlogModal = ({ isOpen, onClose, onAddBlog, onUpdateBlog, blog }: BlogModal
 
 	const categories = ['Groceries', 'Rent', 'Utilities', 'Entertainment', 'Online Purchases', 'Other'];
 
-	const handleUpdateBlog = () => {
-		const updateBlog: BlogType = {
-			id: blog.id,
-			amount: amount || blog.amount,
-			category: category || blog.category,
-			note: note || blog.note,
-			date: date || blog.date,
-		};
+	{/* class code start */}
+	// const handleUpdateBlog = () => {
+	// 	const updateBlog: BlogType = {
+	// 		id: blog.id,
+	// 		amount: amount || blog.amount,
+	// 		category: category || blog.category,
+	// 		note: note || blog.note,
+	// 		date: date || blog.date,
+	// 	};
 
-		onUpdateBlog(updateBlog);
-		setAmount(0);
-		setCategory('');
-		setDate('');
-		setNote('');
-		onClose();
-	}
+	// 	onUpdateBlog(updateBlog);
+	// 	setAmount(0);
+	// 	setCategory('');
+	// 	setDate('');
+	// 	setNote('');
+	// 	onClose();
+	// }
+	{/* class code end */}
+	const handleUpdateBlog = async () => {
+		try {
+			const result = await blogSchema.validate(blogDetail);
+			if (!result) {
+				return;
+			}
+	
+			setError([]);
+			const updateBlog: BlogType = {
+				id: blog.id,
+				amount: blogDetail.amount,
+				category: blogDetail.category,
+				note: blogDetail.note,
+				date: blogDetail.date,
+			};
+	
+			onUpdateBlog(updateBlog);
+
+			setBlogDetail({ id: "", amount: 0, category: "", note: "", date: "" });
+			onClose();
+		} catch (err: any) {
+			setError(err.errors);
+		}
+	};
 
 	{/* class code start */}
 	// const handleAddBlog = async () => {
@@ -111,14 +141,8 @@ const BlogModal = ({ isOpen, onClose, onAddBlog, onUpdateBlog, blog }: BlogModal
 			};
 	
 			onAddBlog(newBlog);
-			setBlogDetail({
-				id: "",
-				amount: 0,
-				category: "",
-				note: "",
-				date: "",
-			});
-			onClose();
+      setBlogDetail({ id: "", amount: 0, category: "", note: "", date: "" });
+      onClose();
 		} catch (err: any) {
 			setError(err.errors);
 		}
@@ -181,7 +205,7 @@ const BlogModal = ({ isOpen, onClose, onAddBlog, onUpdateBlog, blog }: BlogModal
 
 						<select
 							id="category"
-							value={category || blog.category}
+							value={blogDetail.category}
 							onChange={(e) => setBlogDetail({ ...blogDetail, category: e.target.value })}
 							className="w-full border p-2 mb-2 rounded-3xl"
 						>

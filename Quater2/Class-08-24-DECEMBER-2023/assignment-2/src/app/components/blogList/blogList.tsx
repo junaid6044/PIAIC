@@ -1,6 +1,7 @@
 "use client"
 import React, { useState } from 'react';
 import { CiEdit } from "react-icons/ci";
+import Link from 'next/link'
 import { MdDeleteOutline } from "react-icons/md";
 import { BlogType } from '../../types/commonTypes';
 import BlogModal from '../blogModal/blogModal';
@@ -88,6 +89,7 @@ const BlogList = () => {
                     <button onClick={() => onDeleteHandler(blog)} className="flex items-center gap-2 bg-transparent hover:bg-red-800 text-red-800 font-semibold hover:text-white py-2 px-10 border border-red-800 hover:border-transparent rounded-full">
                       <MdDeleteOutline /> Delete
                     </button>
+                    <Link href={blog.category}>Blog</Link>
                   </td>
                 </tr>
               ))
