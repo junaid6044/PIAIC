@@ -9,120 +9,55 @@ const BlogModal = ({ isOpen, onClose, onAddBlog, onUpdateBlog, blog }: BlogModal
 
 	const blogSchema = yup.object().shape({
 		date: yup.string().required(),
-		note: yup.string().required(),
-		category: yup.string().required(),
-		amount: yup.number().required().positive().integer(),
+		description: yup.string().required(),
+		title: yup.string().required(),
 		id: yup.string(),
 	})
 
 	const [blogDetail, setBlogDetail] = useState<BlogType>({
 		id: "",
-		amount: 0,
-		category: "",
-		note: "",
+		title: "",
+		description: "",
 		date: "",
+		image: new File([], 'default_image.jpg')
 	})
 
 	useEffect(() => {
-    setBlogDetail(blog.id ? blog : { id: "", amount: 0, category: "", note: "", date: "" });
-  }, [blog]);
+		setBlogDetail((blog.id ? blog : { id: "", title: "", description: "", date: "" }) as BlogType);
+	}, [blog]);
 
-	const [amount, setAmount] = useState<number>(0);
-	const [category, setCategory] = useState<string>('');
-	const [note, setNote] = useState<string>('');
-	const [date, setDate] = useState<string>('');
 	const [errors, setError] = useState<string[]>([]);
-
 	const categories = ['Groceries', 'Rent', 'Utilities', 'Entertainment', 'Online Purchases', 'Other'];
 
-	{/* class code start */}
-	// const handleUpdateBlog = () => {
-	// 	const updateBlog: BlogType = {
-	// 		id: blog.id,
-	// 		amount: amount || blog.amount,
-	// 		category: category || blog.category,
-	// 		note: note || blog.note,
-	// 		date: date || blog.date,
-	// 	};
-
-	// 	onUpdateBlog(updateBlog);
-	// 	setAmount(0);
-	// 	setCategory('');
-	// 	setDate('');
-	// 	setNote('');
-	// 	onClose();
-	// }
-	{/* class code end */}
 	const handleUpdateBlog = async () => {
 		try {
 			const result = await blogSchema.validate(blogDetail);
 			if (!result) {
 				return;
 			}
-	
+
 			setError([]);
 			const updateBlog: BlogType = {
 				id: blog.id,
-				amount: blogDetail.amount,
-				category: blogDetail.category,
-				note: blogDetail.note,
+				title: blogDetail.title,
+				description: blogDetail.description,
 				date: blogDetail.date,
+				image: blogDetail.image
 			};
-	
+
 			onUpdateBlog(updateBlog);
 
-			setBlogDetail({ id: "", amount: 0, category: "", note: "", date: "" });
+			setBlogDetail({ id: "", title: "", description: "", date: "", image: new File([], 'default_image.jpg') });
 			onClose();
 		} catch (err: any) {
 			setError(err.errors);
 		}
 	};
 
-	{/* class code start */}
-	// const handleAddBlog = async () => {
-	// 	// const newBlog: BlogType = {
-	// 	// 	id: `${Date.now()}`,
-	// 	// 	amount: amount,
-	// 	// 	category,
-	// 	// 	note,
-	// 	// 	date,
-	// 	// };
-
-	// 	// onAddBlog(newBlog);
-	// 	// setAmount(0);
-	// 	// setCategory('');
-	// 	// setDate('');
-	// 	// setNote('');
-	// 	// onClose();
-
-	// 	try {
-	// 		const result = await blogSchema.validate(blogDetail)
-	// 		if (!result) {
-	// 			return
-	// 		}
-
-	// 		setError([])
-	// 		const newBlog: BlogType = {
-	// 			id: `${Date.now()}`,
-	// 			amount: amount,
-	// 			category,
-	// 			note,
-	// 			date,
-	// 		};
-
-	// 		onAddBlog(newBlog);
-	// 		setAmount(0);
-	// 		setCategory('');
-	// 		setDate('');
-	// 		setNote('');
-	// 		onClose();
-	// 	}
-	// 	catch (err: any) {
-	// 		setError(err.errors)
-	// 		console.log("Errors are",err.errors)
-	// 	}
-	// };
-	{/* class code end */}
+	const handleImageChange = (e:any) => {
+		const selectedImage = e.target.files[0];
+		setBlogDetail({ ...blogDetail, image: selectedImage });
+	};
 
 	const handleAddBlog = async () => {
 		try {
@@ -130,19 +65,19 @@ const BlogModal = ({ isOpen, onClose, onAddBlog, onUpdateBlog, blog }: BlogModal
 			if (!result) {
 				return;
 			}
-	
+
 			setError([]);
 			const newBlog: BlogType = {
 				id: `${Date.now()}`,
-				amount: blogDetail.amount,
-				category: blogDetail.category,
-				note: blogDetail.note,
+				title: blogDetail.title,
+				description: blogDetail.description,
 				date: blogDetail.date,
+				image: blogDetail.image
 			};
-	
+
 			onAddBlog(newBlog);
-      setBlogDetail({ id: "", amount: 0, category: "", note: "", date: "" });
-      onClose();
+			setBlogDetail({ id: "", title: "", description: "", date: "", image: new File([], 'default_image.jpg') });
+			onClose();
 		} catch (err: any) {
 			setError(err.errors);
 		}
@@ -162,92 +97,42 @@ const BlogModal = ({ isOpen, onClose, onAddBlog, onUpdateBlog, blog }: BlogModal
 							</button>
 						</div>
 
-
-						<label className="block text-gray-600 text-sm mb-2" htmlFor="amount">
-							Amount
+						<label className="block text-gray-600 text-sm mb-2" htmlFor="title">
+							Title
 						</label>
-						{/* class code start */}
-						{/* <input
-							type="number"
-							id="amount"
-							value={amount || blog.amount}
-							onChange={(e) => setAmount(parseFloat(e.target.value))}
-							className="w-full border p-2 mb-2 rounded-3xl"
-						/> */}
-						{/* class code end */}
+
 						<input
-							type="number"
-							id="amount"
-							value={blogDetail.amount}
-							onChange={(e) => setBlogDetail({ ...blogDetail, amount: parseFloat(e.target.value) })}
+							type="text"
+							id="title"
+							value={blogDetail.title}
+							onChange={(e) => setBlogDetail({ ...blogDetail, title: e.target.value })}
 							className="w-full border p-2 mb-2 rounded-3xl"
 						/>
 
-						<label className="block text-gray-600 text-sm mb-2" htmlFor="category">
-							Category
+						<label className="block text-gray-600 text-sm mb-2" htmlFor="image">
+							Image
 						</label>
+						<input
+							type="file"
+							id="image"
+							onChange={(e) => handleImageChange(e)}
+							className="mb-2"
+						/>
 
-						{/* class code start */}
-						{/* <select
-							id="category"
-							value={category || blog.category}
-							onChange={(e) => setCategory(e.target.value)}
-							className="w-full border p-2 mb-2 rounded-3xl"
-						>
-							<option value="" disabled>Select a category</option>
-							{categories.map((cat) => (
-								<option key={cat} value={cat}>
-									{cat}
-								</option>
-							))}
-						</select> */}
-						{/* class code end */}
-
-						<select
-							id="category"
-							value={blogDetail.category}
-							onChange={(e) => setBlogDetail({ ...blogDetail, category: e.target.value })}
-							className="w-full border p-2 mb-2 rounded-3xl"
-						>
-							<option value="" disabled>Select a category</option>
-							{categories.map((cat) => (
-								<option key={cat} value={cat}>
-									{cat}
-								</option>
-							))}
-						</select>
-
-						<label className="block text-gray-600 text-sm mb-2" htmlFor="note">
-							Note
+						<label className="block text-gray-600 text-sm mb-2" htmlFor="description">
+							Description
 						</label>
-						{/* class code start */}
-						{/* <textarea
-							id="note"
-							value={note || blog.note}
-							onChange={(e) => setNote(e.target.value)}
-							className="w-full border p-2 mb-2 rounded-xl"
-						/> */}
-						{/* class code end */}
 
 						<textarea
-							id="note"
-							value={blogDetail.note}
-							onChange={(e) => setBlogDetail({ ...blogDetail, note: e.target.value })}
+							id="description"
+							value={blogDetail.description}
+							onChange={(e) => setBlogDetail({ ...blogDetail, description: e.target.value })}
 							className="w-full border p-2 mb-2 rounded-xl"
 						/>
 
 						<label className="block text-gray-600 text-sm mb-2" htmlFor="date">
 							Date
 						</label>
-						{/* class code start */}
-						{/* <input
-							type="date"
-							id="date"
-							value={date || blog.date}
-							onChange={(e) => setDate(e.target.value)}
-							className="w-full border p-2 mb-4 rounded-3xl"
-						/> */}
-						{/* class code end */}
 
 						<input
 							type="date"

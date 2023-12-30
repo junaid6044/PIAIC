@@ -3,16 +3,16 @@ import Image from 'next/image'
 
 interface BlogDetailProps {
   data: {
-    id: number,
-    imgSrc: string,
+    id: string,
     title: string,
-    text: string,
-    link: string,
+    description: string,
+    date: string,
+    image: File,
   }
 }
 
 export default function blogDetail(props:BlogDetailProps) {
-  const htmlContent = props.data.text
+  const htmlContent = props.data.description
   return (
     <div className="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-12 relative">
       <div className="mb-8 max-w-3xl mx-auto">
@@ -20,14 +20,14 @@ export default function blogDetail(props:BlogDetailProps) {
       </div>
 
       <div className="text-center flex justify-center">
-      <Image
+      {/* <Image
         src={props.data.imgSrc}
         alt={props.data.title}
         className='rounded'
         width={730}
         height={415}
         priority
-      />
+      /> */}
       </div>
 
       <div className="max-w-3xl mx-auto mt-8">

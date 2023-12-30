@@ -1824,7 +1824,8 @@ export default function Page({ params }: { params: { slug: string } }) {
   return (
     <div>
       {selectedCard ? (
-        <BlogDetail data={selectedCard} />
+        // <BlogDetail data={selectedCard} />
+        <p>Blog not found</p>
       ) : (
         <p>Blog not found</p>
       )}
