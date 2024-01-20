@@ -5,57 +5,58 @@ import ServiceBox from './components/ServiceBox/ServiceBox';
 export default function Home() {
   const services = [
     {
-      iconSrc: '/img/icon-1.svg',
-      title: 'Ui/Ux Design',
-      description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam euismod volutpat.',
+      iconSrc: '/img/icon-6.svg',
+      title: 'Web App Development',
+      description: 'Full Stack Development with Cross browser compatibility',
       bgColor: 'rgb(252, 244, 255)',
     },
     {
       iconSrc: '/img/icon-2.svg',
-      title: 'App Development',
-      description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam euismod volutpat.',
+      title: 'Mobile App Development',
+      description: 'Create a Mobile App Development',
       bgColor: 'rgb(254, 250, 240)',
     },
     {
       iconSrc: '/img/icon-3.svg',
-      title: 'Photography',
-      description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam euismod volutpat.',
-      bgColor: 'rgb(252, 244, 255)',
-    },
-    {
-      iconSrc: '/img/icon-4.svg',
-      title: 'Photography',
-      description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam euismod volutpat.',
-      bgColor: 'rgb(255, 244, 244)',
+      title: 'Responsive Design',
+      description: 'Create a Responsive Application Design',
+      bgColor: 'rgb(255, 240, 248)',
     },
     {
       iconSrc: '/img/icon-5.svg',
       title: 'Management',
-      description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam euismod volutpat.',
-      bgColor: 'rgb(255, 240, 248)',
+      description: 'Optimize and Improve the Application',
+      bgColor: 'rgb(252, 244, 255)',
     },
     {
-      iconSrc: '/img/icon-6.svg',
-      title: 'Web Development',
-      description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam euismod volutpat.',
+      iconSrc: '/img/icon-1.svg',
+      title: 'Saas Service',
+      description: 'Third Party Integration',
       bgColor: 'rgb(243, 250, 255)',
+    },
+    {
+      iconSrc: '/img/icon-4.svg',
+      title: 'Photography',
+      description: 'Add a Collection of images in your Application',
+      bgColor: 'rgb(255, 244, 244)',
     },
   ];
   return (
 
     <>
-      <div className="pt-12 md:py-12 px-2 sm:px-5 md:px-10 lg:px-14">
+      <div className="pt-12 md:py-12 px-10 sm:px-10 md:px-10 lg:px-14">
         <h2 className="after-effect after:left-52">About Me</h2>
         <div className="lg:grid grid-cols-12 md:gap-10 pt-4 md:pt-[30px] items-center ">
           <div className="col-span-12 space-y-2.5">
             <div className="lg:mr-16">
-              <p className="text-gray-lite dark:text-color-910 leading-7">I&apos;m Creative Director and UI/UX Designer from Sydney, Australia, working in web development and print media. I enjoy turning complex problems into simple, beautiful and intuitive designs.</p>
-              <p className="text-gray-lite leading-7 mt-2.5 dark:text-color-910">My aim is to bring across your message and identity in the most creative way. I created web design for many famous brand companies.</p>
+              <p className="text-gray-lite dark:text-color-910 leading-7">I&apos;m Creative web application developer and mobile application developer from Punjab, Pakistan. I enjoy turning complex problems into simple, beautiful and intuitive designs.</p>
+              <p className="text-gray-lite leading-7 mt-2.5 dark:text-color-910">As a full stack developer, I offer web design, development and content services. I have expertise in HTML, CSS, JavaScript, NextJs, React, Python, Ruby on Rails to build responsive websites and apps. I also have experience with databases like SQL, PostgreSQL. I deliver high quality web design, front-end development, back-end coding and content management projects on time.</p>
+              <p className="text-gray-lite leading-7 mt-2.5 dark:text-color-910">My aim is to bring across your message and identity in the most creative way. Contact me for any assistance needed with your digital projects.</p>
             </div>
           </div>
         </div>
       </div>
-      <section className="pb-12 px-2 sm:px-5 md:px-10 lg:px-14 ">
+      <section className="pb-12 px-10 sm:px-10 md:px-10 lg:px-14">
         <h3 className="text-[35px] dark:text-white font-medium pb-5">What I do!</h3>
         <div className="grid gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-2">
           {services.map((service, index) => (

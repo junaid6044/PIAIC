@@ -18,19 +18,14 @@ export default function Resume() {
                 <h4 className="text-5xl dark:text-white font-medium">Education</h4>
               </div>
               <div className="py-4 pl-5 pr-3 space-y-2 mb-6 rounded-lg dark:border-[#212425] dark:border-2" style={{ background: 'rgb(255, 244, 244)' }}>
-                <span className="text-tiny text-gray-lite dark:text-[#b7b7b7]">2021-2023</span>
-                <h3 className="text-xl dark:text-white"> Ph.D in Horriblensess  </h3>
-                <p className="dark:text-[#b7b7b7]">ABC University, Los Angeles, CA</p>
+                <span className="text-tiny text-gray-lite dark:text-[#b7b7b7]">2016 - 2020</span>
+                <h3 className="text-xl dark:text-white"> BS Computer Science  </h3>
+                <p className="dark:text-[#b7b7b7]">National Textile University, Pak</p>
               </div>
               <div className="py-4 pl-5 pr-3 space-y-2 mb-6 rounded-lg dark:border-[#212425] dark:border-2" style={{ background: 'rgb(255, 241, 251)' }}>
-                <span className="text-tiny text-gray-lite dark:text-[#b7b7b7]">2019 - Present</span>
-                <h3 className="text-xl dark:text-white"> Sr. Software Tester </h3>
-                <p className="dark:text-[#b7b7b7]">Google Inc.</p>
-              </div>
-              <div className="py-4 pl-5 pr-3 space-y-2 mb-6 rounded-lg dark:border-[#212425] dark:border-2" style={{ background: 'rgb(255, 244, 244)' }}>
-                <span className="text-tiny text-gray-lite dark:text-[#b7b7b7]">2021</span>
-                <h3 className="text-xl dark:text-white"> Best Developer  </h3>
-                <p className="dark:text-[#b7b7b7]">University Of Melbourne, NA</p>
+                <span className="text-tiny text-gray-lite dark:text-[#b7b7b7]">2014 - 2016</span>
+                <h3 className="text-xl dark:text-white"> FSc Pre-Engineering </h3>
+                <p className="dark:text-[#b7b7b7]"> Superior College Faisalabad, Pak</p>
               </div>
             </div>
             <div>
@@ -44,19 +39,14 @@ export default function Resume() {
                 <h4 className="text-5xl dark:text-white font-medium">Experience</h4>
               </div>
               <div className="py-4 pl-5 pr-3 space-y-2 mb-6 rounded-lg dark:border-[#212425] dark:border-2" style={{ background: 'rgb(238, 245, 250)' }}>
-                <span className="text-tiny text-gray-lite dark:text-[#b7b7b7]">2017-2021</span>
-                <h3 className="text-xl dark:text-white"> Computer Science </h3>
-                <p className="dark:text-[#b7b7b7]">Imperialize Technical Institute</p>
+                <span className="text-tiny text-gray-lite dark:text-[#b7b7b7]">2021 - Present</span>
+                <h3 className="text-xl dark:text-white"> Sr. Software Engineer </h3>
+                <p className="dark:text-[#b7b7b7]">Sr. Ruby on Rails developer at Techcologic</p>
               </div>
               <div className="py-4 pl-5 pr-3 space-y-2 mb-6 rounded-lg dark:border-[#212425] dark:border-2" style={{ background: 'rgb(242, 244, 255)' }}>
-                <span className="text-tiny text-gray-lite dark:text-[#b7b7b7]">2015-2017</span>
-                <h3 className="text-xl dark:text-white"> Cr. Web Developer </h3>
-                <p className="dark:text-[#b7b7b7]">ib-themes ltd.</p>
-              </div>
-              <div className="py-4 pl-5 pr-3 space-y-2 mb-6 rounded-lg dark:border-[#212425] dark:border-2" style={{ background: 'rgb(238, 245, 250)' }}>
-                <span className="text-tiny text-gray-lite dark:text-[#b7b7b7]">2008</span>
-                <h3 className="text-xl dark:text-white"> Best Writter </h3>
-                <p className="dark:text-[#b7b7b7]">Online Typodev Soluation Ltd.</p>
+                <span className="text-tiny text-gray-lite dark:text-[#b7b7b7]">2020 - 2021</span>
+                <h3 className="text-xl dark:text-white"> Front end Developer </h3>
+                <p className="dark:text-[#b7b7b7]">Vistabit</p>
               </div>
             </div>
           </div>
@@ -65,64 +55,35 @@ export default function Resume() {
       <div className="container bg-color-810 dark:bg-[#0D0D0D] py-12 px-4 sm:px-5 md:px-10 lg:px-20">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="col-span-1">
-            <h4 className="text-5xl dark:text-white font-medium mb-6">Working Skills</h4>
-            <div className=" mb-7">
-              <div className="flex justify-between py-1"><span className=" text-base text-gray-lite font-semibold dark:text-[#A6A6A6]">Web Design</span><span className=" text-base font-semibold text-gray-lite pr-5 dark:text-[#A6A6A6]">80%</span></div>
-              <svg className="rc-progress-line" viewBox="0 0 100 1" preserveAspectRatio="none">
-                <path className="rc-progress-line-trail" d="M 0.5,0.5
-                              L 99.5,0.5" strokeLinecap="round" stroke="#D9D9D9" strokeWidth="1" fillOpacity="0"></path>
-                <path className="rc-progress-line-path" d="M 0.5,0.5
-                              L 99.5,0.5" strokeLinecap="round" stroke="#FF6464" strokeWidth="1" fillOpacity="0"
-                  style={{
-                    strokeDasharray: '79.2px, 100px',
-                    strokeDashoffset: '0px',
-                    transition: 'stroke-dashoffset 0.3s ease 0s, stroke-dasharray 0.3s ease 0s, stroke 0.3s linear 0s, 0.06s'
-                  }}></path>
-              </svg>
-            </div>
-            <div className=" mb-7">
-              <div className="flex justify-between py-1"><span className=" text-base text-gray-lite font-semibold dark:text-[#A6A6A6]">Mobile App </span><span className=" text-base font-semibold text-gray-lite pr-5 dark:text-[#A6A6A6]">95%</span></div>
-              <svg className="rc-progress-line" viewBox="0 0 100 1" preserveAspectRatio="none">
-                <path className="rc-progress-line-trail" d="M 0.5,0.5
-                              L 99.5,0.5" strokeLinecap="round" stroke="#D9D9D9" strokeWidth="1" fillOpacity="0"></path>
-                <path className="rc-progress-line-path" d="M 0.5,0.5
-                              L 99.5,0.5" strokeLinecap="round" stroke="#9272D4" strokeWidth="1" fillOpacity="0" style={{
-                    strokeDasharray: '94.05px, 100px',
-                    strokeDashoffset: '0px',
-                    transition: 'stroke-dashoffset 0.3s ease 0s, stroke-dasharray 0.3s ease 0s, stroke 0.3s linear 0s, 0.06s'
-                  }}></path>
-              </svg>
-            </div>
-            <div className=" mb-7">
-              <div className="flex justify-between py-1"><span className=" text-base text-gray-lite font-semibold dark:text-[#A6A6A6]">Illustrator</span><span className=" text-base font-semibold text-gray-lite pr-5 dark:text-[#A6A6A6]">65%</span></div>
-              <svg className="rc-progress-line" viewBox="0 0 100 1" preserveAspectRatio="none">
-                <path className="rc-progress-line-trail" d="M 0.5,0.5
-                              L 99.5,0.5" strokeLinecap="round" stroke="#D9D9D9" strokeWidth="1" fillOpacity="0"></path>
-                <path className="rc-progress-line-path" d="M 0.5,0.5
-                              L 99.5,0.5" strokeLinecap="round" stroke="#5185D4" strokeWidth="1" fillOpacity="0" style={{
-                    strokeDasharray: '64.35px, 100px',
-                    strokeDashoffset: '0px',
-                    transition: 'stroke-dashoffset 0.3s ease 0s, stroke-dasharray 0.3s ease 0s, stroke 0.3s linear 0s, 0.06s'
-                  }}></path>
-              </svg>
-            </div>
-            <div className=" mb-7">
-              <div className="flex justify-between py-1"><span className=" text-base text-gray-lite font-semibold dark:text-[#A6A6A6]">Photoshope</span><span className=" text-base font-semibold text-gray-lite pr-5 dark:text-[#A6A6A6]">75%</span></div>
-              <svg className="rc-progress-line" viewBox="0 0 100 1" preserveAspectRatio="none">
-                <path className="rc-progress-line-trail" d="M 0.5,0.5
-                              L 99.5,0.5" strokeLinecap="round" stroke="#D9D9D9" strokeWidth="1" fillOpacity="0"></path>
-                <path className="rc-progress-line-path" d="M 0.5,0.5
-                              L 99.5,0.5" strokeLinecap="round" stroke="#CA56F2" strokeWidth="1" fillOpacity="0" style={{
-                    strokeDasharray: '74.25px, 100px',
-                    strokeDashoffset: '0px',
-                    transition: 'stroke-dashoffset 0.3s ease 0s, stroke-dasharray 0.3s ease 0s, stroke 0.3s linear 0s, 0.06s'
-                  }}></path>
-              </svg>
+            <h4 className="text-5xl dark:text-white font-medium mb-6">Languages Knowledge</h4>
+            <div className='grid grid-cols-2 gap-4'>
+              <div className="border-dashed border-b-2 border-gray-300">Ruby</div>
+              <div className="border-dashed border-b-2 border-gray-300">Ruby on Rails</div>
+              <div className="border-dashed border-b-2 border-gray-300">NextJs</div>
+              <div className="border-dashed border-b-2 border-gray-300">HTML</div>
+              <div className="border-dashed border-b-2 border-gray-300">CSS</div>
+              <div className="border-dashed border-b-2 border-gray-300">Bootstrap</div>
+              <div className="border-dashed border-b-2 border-gray-300">JavaScript</div>
+              <div className="border-dashed border-b-2 border-gray-300">Jquery</div>
+              <div className="border-dashed border-b-2 border-gray-300">TypeScript</div>
+              <div className="border-dashed border-b-2 border-gray-300">C++</div>
+              <div className="border-dashed border-b-2 border-gray-300">SQL</div>
+              <div className="border-dashed border-b-2 border-gray-300">Shopify Liquid</div>
             </div>
           </div>
           <div className="col-span-1">
-            <h4 className="text-5xl dark:text-white font-medium mb-8">Knowledges</h4>
-            <div className="flex gap-x-3 gap-y-3 md:gap-y-3 md:gap-x-3 flex-wrap"><button className="resume-btn text-[15px]">Digital Design</button><button className="resume-btn text-[15px]">Marketing</button><button className="resume-btn text-[15px]">Social Media</button><button className="resume-btn text-[15px]">Print</button><button className="resume-btn text-[15px]">Time Management</button><button className="resume-btn text-[15px]">Flexibility</button><button className="resume-btn text-[15px]">Print</button><button className="resume-btn text-[15px]">Time Management</button><button className="resume-btn text-[15px]">Flexibility</button><button className="resume-btn text-[15px]">Print</button></div>
+            <h4 className="text-5xl dark:text-white font-medium mb-8">Skills</h4>
+            <div className="flex gap-x-3 gap-y-3 md:gap-y-3 md:gap-x-3 flex-wrap">
+              <button className="resume-btn text-[15px]">Ruby on Rails</button>
+              <button className="resume-btn text-[15px]">Git</button>
+              <button className="resume-btn text-[15px]">Shopify</button>
+              <button className="resume-btn text-[15px]">PostgreSQL</button>
+              <button className="resume-btn text-[15px]">Testing & Debugging</button>
+              <button className="resume-btn text-[15px]">Communication Skills</button>
+              <button className="resume-btn text-[15px]">Teamwork</button>
+              <button className="resume-btn text-[15px]">Hardworking</button>
+              <button className="resume-btn text-[15px]">Client Satisfaction</button>
+            </div>
           </div>
         </div>
       </div>

@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useRouter, usePathname } from 'next/navigation';
 
 
-export default function Navbar() {
+export default function Navbar(props:any) {
   const router = useRouter();
   const pathname = usePathname();
 
@@ -12,8 +12,8 @@ export default function Navbar() {
     return pathname === href;
   };
   return (
-    <header className="lg:w-[526px] h-[144px] hidden lg:block p-[30px] ml-auto mt-5 mb-5 rounded-[16px] bg-white dark:bg-[#111111] ">
-      <nav className="hidden lg:block">
+    <header className={`w-[526px] h-[144px] ${props.isHidden} p-[30px] ml-auto mt-5 mb-5 rounded-[16px] bg-white dark:bg-[#111111] `}>
+      <nav className={props.cls}>
         <ul className="flex">
           <Link className={`w-full h-20 rounded-[10px] cursor-pointer font-poppins bg-[#F3F6F6] font-medium mx-2.5 text-xtiny text-gray-lite dark:text-[#A6A6A6] justify-center flex flex-col items-center transition-all duration-300 ease-in-out dark:hover:text-white dark:bg-[#212425] hover:text-white hover:bg-gradient-to-r from-[#FA5252] to-[#DD2476] ${isActive('/') ? 'lg:text-white lg:dark:text-white lg:bg-gradient-to-r from-[#FA5252] to-[#DD2476]' : ''
             }`} href="/">
@@ -51,7 +51,7 @@ export default function Navbar() {
             </span>
             Works
           </Link>
-          <Link className={`w-full h-20 rounded-[10px] cursor-pointer font-poppins bg-[#F3F6F6] font-medium mx-2.5 text-xtiny text-gray-lite dark:text-[#A6A6A6] justify-center flex flex-col items-center transition-all duration-300 ease-in-out dark:hover:text-white dark:bg-[#212425] hover:text-white hover:bg-gradient-to-r from-[#FA5252] to-[#DD2476] ${isActive('/blogs') ? 'lg:text-white lg:dark:text-white lg:bg-gradient-to-r from-[#FA5252] to-[#DD2476]' : ''
+          {/* <Link className={`w-full h-20 rounded-[10px] cursor-pointer font-poppins bg-[#F3F6F6] font-medium mx-2.5 text-xtiny text-gray-lite dark:text-[#A6A6A6] justify-center flex flex-col items-center transition-all duration-300 ease-in-out dark:hover:text-white dark:bg-[#212425] hover:text-white hover:bg-gradient-to-r from-[#FA5252] to-[#DD2476] ${isActive('/blogs') ? 'lg:text-white lg:dark:text-white lg:bg-gradient-to-r from-[#FA5252] to-[#DD2476]' : ''
             }`} href="/blogs">
             <span className="text-xl mb-1">
               <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 448 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
@@ -59,7 +59,7 @@ export default function Navbar() {
               </svg>
             </span>
             Blogs
-          </Link>
+          </Link> */}
           <Link className={`w-full h-20 rounded-[10px] cursor-pointer font-poppins bg-[#F3F6F6] font-medium mx-2.5 text-xtiny text-gray-lite dark:text-[#A6A6A6] justify-center flex flex-col items-center transition-all duration-300 ease-in-out dark:hover:text-white dark:bg-[#212425] hover:text-white hover:bg-gradient-to-r from-[#FA5252] to-[#DD2476] ${isActive('/contact') ? 'lg:text-white lg:dark:text-white lg:bg-gradient-to-r from-[#FA5252] to-[#DD2476]' : ''
             }`} href="/contact">
             <span className="text-xl mb-1">

@@ -1,4 +1,7 @@
 import React from 'react'
+import { FaPhoneAlt } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
+
 
 export default function contact() {
   return (
@@ -7,28 +10,26 @@ export default function contact() {
         <h2 className="after-effect after:left-48 mt-12 lg:mt-0 mb-12 md:mb-[30px]">Contact</h2>
         <div className="grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 mb-[40px] grid gap-x-5 gap-y-7">
           <div className="flex flex-wrap dark:bg-transparent p-[30px] border-[#A6A6A6] gap-2 rounded-xl" style={{ background: 'rgb(252, 244, 255)' }}>
-            <span className="w-8 mt-2">
-              <img alt="icon" src="/_next/image?url=%2Fimages%2Fcontact%2Fphone-call%201.png&amp;w=64&amp;q=75" width="30" height="20" decoding="async" data-nimg="1" className="text-4xl dark:text-white" loading="lazy" />
+            <span className="w-8">
+              <FaPhoneAlt width="30" height="20" className="text-4xl"/>
             </span>
             <div className="space-y-2">
               <p className="text-xl font-semibold dark:text-white">Phone  :</p>
-              <p><a href="tel:+452 666 386" className="text-gray-lite text-lg dark:text-[#A6A6A6] ">+452 666 386</a></p>
-              <p><a href="tel:+654 764 878" className="text-gray-lite text-lg dark:text-[#A6A6A6] ">+654 764 878</a></p>
+              <p><a href="tel:+923087015140" className="text-gray-lite text-lg dark:text-[#A6A6A6] ">+92 308 7015140</a></p>
             </div>
           </div>
           <div className="flex flex-wrap dark:bg-transparent p-[30px] border-[#A6A6A6] gap-2 rounded-xl" style={{ background: 'rgb(238, 251, 255)' }}>
-            <span className="w-8 mt-2">
-              <img alt="icon" src="/_next/image?url=%2Fimages%2Fcontact%2Femail%201.png&amp;w=64&amp;q=75" width="30" height="20" decoding="async" data-nimg="1" className="text-4xl dark:text-white" loading="lazy" />
+            <span className="w-8">
+              <MdEmail width="30" height="20" className="text-4xl" />
             </span>
             <div className="space-y-2">
               <p className="text-xl font-semibold dark:text-white">Email  :</p>
-              <p><a href="mailto:ibthemes21@gmail.com" className="text-gray-lite text-lg dark:text-[#A6A6A6] ">ibthemes@gmail.com</a></p>
-              <p><a href="mailto:xyz@abc.com" className="text-gray-lite text-lg dark:text-[#A6A6A6] ">mailto:xyz@abc.com</a></p>
+              <p><a href="mailto:muhammadjunaid7015140@gmail.com" className="text-gray-lite text-lg dark:text-[#A6A6A6] ">muhammadjunaid7015140</a></p>
             </div>
           </div>
         </div>
-        <div className="  dark:border-[#212425] dark:border-2 mb-16  md:p-[48px]  p-4   bg-color-810 rounded-xl dark:bg-[#111111] mb-[30px] md:mb-[60px]">
-          <h3 className="text-4xl "><span className="text-gray-lite dark:text-[#A6A6A6] ">I&apos;m always open to discussing product</span><br /><span className="font-semibold dark:text-white">design work or partnerships.</span></h3>
+        <div className="dark:border-[#212425] dark:border-2 md:p-[48px]  p-4 bg-color-810 rounded-xl dark:bg-[#111111] mb-[30px] md:mb-[60px]">
+          <h3 className="text-4xl"><span className="text-gray-lite dark:text-[#A6A6A6] ">I&apos;m always open to discussing product</span><br /><span className="font-semibold dark:text-white">design work or partnerships.</span></h3>
           <form id="myForm">
             <div className="relative z-0 w-full mt-[40px] mb-8 group">
               <input
