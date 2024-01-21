@@ -6,7 +6,7 @@ import { FaBars } from "react-icons/fa6";
 import './globals.css'
 import Navbar from './components/Navbar/Navbar'
 import Footer from './components/Footer/Footer'
-import MobileHeader from './components/MobileHeader/mobileHeader';
+import MobileHeader from './components/MobileHeader/MobileHeader';
 
 const inter = Inter({ subsets: ['latin'] })
 
