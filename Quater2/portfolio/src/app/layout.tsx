@@ -6,6 +6,7 @@ import { FaBars } from "react-icons/fa6";
 import './globals.css'
 import Navbar from './components/Navbar/Navbar'
 import Footer from './components/Footer/Footer'
+import MobileHeader from './components/MobileHeader/mobileHeader';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -23,14 +24,14 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <section className="bg-homeBg dark:bg-homeTwoBg-dark min-h-screen bg-no-repeat bg-center bg-cover bg-fixed md:pb-16 w-full">
-          {/* <FaBars /> */}
           <div className='small_screen_nav flex w-screen justify-center items-center lg:hidden'>
-            <Navbar cls="block lg:hidden" isHidden='block lg:hidden' />
+            {/* <Navbar cls="block lg:hidden" isHidden='block lg:hidden' /> */}
+            <MobileHeader />
           </div>
           <div className="container grid grid-cols-12 md:gap-10 justify-between mx-auto">
             {/* <div className="col-span-12 lg:col-span-4 hidden lg:block h-screen sticky top-44"> */}
             <div className="col-span-12 lg:col-span-4 lg:block lg:h-screen lg:mt-[11.5rem] top-44">
-              <div className="w-full mb-6 lg:mb-0 mx-auto relative bg-white text-center dark:bg-[#111111] px-6 rounded-[20px] mt-[140px] md:mt-[140px] lg:mt-0 ">
+              <div className="w-full mb-6 lg:mb-0 mx-auto relative bg-white text-center dark:bg-[#111111] px-6 rounded-[20px] mt-[270px] md:mt-[270px] lg:mt-0 ">
                 <Image
                   alt="avatar"
                   src="/img/profile.jpeg"
@@ -135,7 +136,7 @@ export default function RootLayout({
               </div>
             </div>
             <div className="col-span-12 lg:col-span-8">
-              <Navbar cls="hidden lg:block" isHidden='hidden lg:block'/>
+              <Navbar cls="hidden lg:block" isHidden='hidden lg:block' />
               <div className="rounded-2xl bg-white dark:bg-[#111111]">
                 <div data-aos="fade" className="aos-init aos-animate">
                   {children}

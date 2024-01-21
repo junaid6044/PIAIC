@@ -32,7 +32,7 @@ export default function works() {
       <div className="py-12">
         <h2 className="after-effect after:left-48 mt-12 lg:mt-0">Portfolio</h2>
       </div>
-      <div className="grid grid-cols-2 gap-4 mt-[30px]">
+      <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-4 mt-[30px]">
         <AliceCarousel mouseTracking autoPlay infinite disableButtonsControls autoPlayInterval={1500} items={mentorcityItems} />
         <AliceCarousel mouseTracking autoPlay infinite disableButtonsControls autoPlayInterval={1500} items={seaItems} />
         <AliceCarousel mouseTracking autoPlay infinite disableButtonsControls autoPlayInterval={1500} items={xploreItems} />

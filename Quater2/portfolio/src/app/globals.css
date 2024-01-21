@@ -144,3 +144,70 @@ ul.alice-carousel__stage li img {
 .small_screen_nav header {
   margin-left: 0px;
 }
+
+.close-menu,
+.open-menu {
+  position: absolute;
+  cursor: pointer;
+  display: none;
+}
+
+.open-menu {
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+}
+
+.close-menu {
+  top: 20px;
+  right: 20px;
+}
+
+#check {
+  display: none;
+}
+
+@media (max-width: 1023px) {
+  .menu {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 73%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    z-index: 100;
+    background-color: #fff;
+    color: #fff;
+    transition: all 0.5s ease-in-out;
+    font-size: 24px;
+  }
+
+  .menu li {
+    margin-top: 40px;
+    width: 100%;
+    padding: 0 !important;
+    text-align: center;
+  }
+
+  .menu li:hover {
+    background: #add8e6;
+    color: #fff;
+  }
+
+  .menu li a {
+    padding: 10px;
+  }
+
+  .close-menu,
+  .open-menu {
+    display: block;
+  }
+
+  #check:checked ~ .menu {
+    right: 0;
+    /* padding-top: 70px; */
+    color: #000;
+  }
+}
