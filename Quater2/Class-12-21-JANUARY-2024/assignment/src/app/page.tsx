@@ -10,41 +10,45 @@ export default function Home() {
 
   useEffect(() => {
     const func = async () => {
-      setISBearerToken(localStorage.getItem('bearer_token'));
-      if (!isBearerToken) return;
-      const apiResp = await fetch('https://dummyjson.com/auth/me', {
-        method: 'GET',
-        headers: {
-          'Authorization': isBearerToken,
-        },
-      })
-      const data = await apiResp.json();
-      console.log("data from use Effect", data);
+      if (username && password) {
+        setISBearerToken(localStorage.getItem('bearer_token'));
+        if (!isBearerToken) return;
+        const apiResp = await fetch('https://dummyjson.com/auth/me', {
+          method: 'GET',
+          headers: {
+            'Authorization': isBearerToken,
+          },
+        })
+        const data = await apiResp.json();
+        console.log("data from use Effect", data);
+      }
     };
     func();
-  }, [isBearerToken]);
+  }, [isBearerToken, username, password]);
 
   const onLoginHandler = async () => {
-    const apiResp = await fetch('https://dummyjson.com/auth/login', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
+    if (username && password) {
+      const apiResp = await fetch('https://dummyjson.com/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
 
-        username: username,       // 'kminchelle',
-        password: password,       //'0lelplR',
-        // expiresInMins: 60,     // optional
+          username: username,       // 'kminchelle',
+          password: password,       //'0lelplR',
+          // expiresInMins: 60,     // optional
+        })
       })
-    })
-    const data = await apiResp.json();
-    console.log("data", data);
-    localStorage.setItem('bearer_token', data.token);
-    setISBearerToken(data.token)
-    router.push('/products');
+      const data = await apiResp.json();
+      console.log("data", data);
+      localStorage.setItem('bearer_token', data.token);
+      setISBearerToken(data.token)
+      router.push('/blogs');
+    }
   }
   return (
     <div className="flex justify-center items-center lg:h-screen">
       <div className="flex flex-col justify-center items-center md:flex-row shadow rounded-xl max-w-7xl w-[90%] h-[670px] md:h-[460px] m-2">
-        <div className="h-[100%] w-full md:w-3/4 bg-center bg-cover rounded-lg" style={{ backgroundImage: 'url(/img/bg-5.jpg)', }}>
+        <div className="h-[100%] w-full md:w-3/4 bg-center bg-cover rounded-lg" style={{ backgroundImage: `url(/img/bg-5.jpg)` }}>
         </div>
         <div className="h-[90%] w-full md:w-3/4">
           <div className="text-xl cursor-pointer flex flex-col justify-center items-center mt-5 md:mt-0">
