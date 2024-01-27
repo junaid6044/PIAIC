@@ -6,11 +6,12 @@ export default function Home() {
   const [isBearerToken, setISBearerToken] = useState<string | null>(null);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [errors, setErrors] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
     const func = async () => {
-      if (username && password) {
+      if (!errors) {
         setISBearerToken(localStorage.getItem('bearer_token'));
         if (!isBearerToken) return;
         const apiResp = await fetch('https://dummyjson.com/auth/me', {
@@ -21,28 +22,34 @@ export default function Home() {
         })
         const data = await apiResp.json();
         console.log("data from use Effect", data);
-      }
-    };
+      };
+    }
     func();
-  }, [isBearerToken, username, password]);
+  }, [isBearerToken]);
 
   const onLoginHandler = async () => {
-    if (username && password) {
-      const apiResp = await fetch('https://dummyjson.com/auth/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
+    const apiResp = await fetch('https://dummyjson.com/auth/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
 
-          username: username,       // 'kminchelle',
-          password: password,       //'0lelplR',
-          // expiresInMins: 60,     // optional
-        })
+        username: username,       // 'kminchelle',
+        password: password,       //'0lelplR',
+        // expiresInMins: 60,     // optional
       })
-      const data = await apiResp.json();
-      console.log("data", data);
+    })
+    const data = await apiResp.json();
+    console.log("data", data);
+    console.log("apiResp", apiResp);
+    if (apiResp.status === 200) {
+      setErrors(false);
       localStorage.setItem('bearer_token', data.token);
       setISBearerToken(data.token)
       router.push('/blogs');
+    }
+    else {
+      setErrors(true);
+      return
     }
   }
   return (
@@ -85,6 +92,7 @@ export default function Home() {
             <button onClick={onLoginHandler} className="uppercase px-24 md:px-[118px] lg:px-[140px] py-2 rounded-md text-white bg-blue-500 hover:bg-blue-600 font-medium">
               login
             </button>
+            {errors && <div className='text-red-600 font-bold mt-5'>Please Enter the correct User Name or Password!!!</div>}
           </div>
         </div>
       </div>

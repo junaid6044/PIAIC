@@ -4,7 +4,6 @@ import Card from '../components/card';
 
 const fetchServices = async () => {
   let apiResp = await client.getEntries({ content_type: "blogs" })
-  // console.log("fetchServices", apiResp.items[0].fields.image.fields.file.url);
   return apiResp.items;
 }
 
