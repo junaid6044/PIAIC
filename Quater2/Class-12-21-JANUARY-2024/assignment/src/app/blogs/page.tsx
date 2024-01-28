@@ -1,6 +1,7 @@
 import React from 'react'
 import client from '../config/contentful'
 import Card from '../components/card';
+import Navbar from '../components/navbar';
 
 const fetchServices = async () => {
   let apiResp = await client.getEntries({ content_type: "blogs" })
@@ -11,6 +12,7 @@ export default async function blog() {
   const services = await fetchServices()
   return (
     <>
+      <Navbar />
       <div className='text-center font-bold my-4'>
         <p className='text-red-800 text-lg'>My Recent Posts</p>
         <h1 className='text-6xl mt-2 mb-8 text-teal-600'>My Blog</h1>

@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@moxy/react-contentful-image": "^1.0.0",
     "contentful": "^10.6.19",
     "next": "14.1.0",
     "react": "^18",
