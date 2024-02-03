@@ -27,6 +27,12 @@ export const serviceSlice = createSlice({
     createService: (state, action) => {
       state.services = [...state.services, action.payload];
     },
+    deleteService: (state, action) => {
+      state.services = state.services.filter(service => service.id !== action.payload.id);
+    },
+    editService: (state, action) => {
+      state.services.filter(service => service.id == action.payload.id);
+    },
     updateService: (state, action) => {
       state.services = state.services.map(service => {
         if (service.id === action.payload.id) {
@@ -38,5 +44,5 @@ export const serviceSlice = createSlice({
   }
 })
 
-export const {createService, updateService} = serviceSlice.actions
+export const {createService, deleteService, editService, updateService} = serviceSlice.actions
 export default serviceSlice.reducer
