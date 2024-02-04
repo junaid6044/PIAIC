@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useDispatch, useSelector } from "react-redux"
 import { updateService, editService } from "../../../store/slices/serviceSlice"
@@ -8,14 +8,16 @@ export default function Edit() {
   const [title, setTitle] = useState<string>('');
   const [description, setDescription] = useState<string>('');
   const router = useRouter();
-
-  const searchParams = useSearchParams()
-  const id = searchParams.get('id')
-
-  const services = useSelector((store: any) => store.serviceSlice.services)
-  const service = services.filter((service:any) => service.id == id)[0];
   const dispatch = useDispatch();
 
+  const id = localStorage.getItem('id')
+
+  const service = useSelector((store: any) => store.serviceSlice.toUpdate) || dispatch(editService({ id: id }))
+  useEffect(()=>
+  {
+    setTitle(service?.title)
+    setDescription(service?.description)
+  },[service?.title, service?.description])
   const onSubmitHandler = (id: any) => {
     setTitle(title);
     setDescription(description);
@@ -24,7 +26,7 @@ export default function Edit() {
   }
 
   return (
-    <div className="mb-4">
+    <div className="w-3/4 mt-8 mx-auto">
 
       <label className="block text-gray-600 text-sm mb-2" htmlFor="title">
         Title
@@ -33,7 +35,7 @@ export default function Edit() {
       <input
         type="text"
         id="title"
-        value={service.title}
+        value={title}
         onChange={(e) => setTitle(e.target.value)}
         className="w-full border p-2 mb-2 rounded-3xl"
       />
@@ -44,7 +46,7 @@ export default function Edit() {
 
       <textarea
         id="description"
-        value={service.description}
+        value={description}
         onChange={(e) => setDescription(e.target.value)}
         className="w-full border p-2 mb-2 rounded-xl"
       />

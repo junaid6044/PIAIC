@@ -20,7 +20,7 @@ export default function New() {
   }
 
   return (
-    <div className="mb-4">
+    <div className="w-3/4 mt-8 mx-auto">
 
       <label className="block text-gray-600 text-sm mb-2" htmlFor="title">
         Title
@@ -29,7 +29,7 @@ export default function New() {
       <input
         type="text"
         id="title"
-        value="test title"
+        // value="test title"
         onChange={(e) => setTitle(e.target.value)}
         className="w-full border p-2 mb-2 rounded-3xl"
       />
@@ -40,7 +40,7 @@ export default function New() {
 
       <textarea
         id="description"
-        value="test description"
+        // value="test description"
         onChange={(e) => setDescription(e.target.value)}
         className="w-full border p-2 mb-2 rounded-xl"
       />

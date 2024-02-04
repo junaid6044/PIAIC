@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-const initialState = {
+const initialState:{services:{id:number,title:string,description:string}[],toUpdate:null |undefined|{id:number,title:string,description:string}} = {
   services: [
     {
       id: 1,
@@ -17,7 +17,8 @@ const initialState = {
       title: "AI Based Solutions",
       description: "We support and build smart AI based solutions using machine learning algorithms and Augmented reality"
     }
-  ]
+  ],
+  toUpdate:null
 }
 
 export const serviceSlice = createSlice({
@@ -31,7 +32,7 @@ export const serviceSlice = createSlice({
       state.services = state.services.filter(service => service.id !== action.payload.id);
     },
     editService: (state, action) => {
-      state.services.filter(service => service.id == action.payload.id);
+   state.toUpdate = state.services.find(service => service.id == action.payload.id);
     },
     updateService: (state, action) => {
       state.services = state.services.map(service => {
