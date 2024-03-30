@@ -18,6 +18,11 @@ students = [
   }
 ]
 
+@app.get("/")
+def Home():
+  return {"Name" : "Muhammad Junaid", "Quater": "3", "Assignment": "1st"}
+
+
 @app.get("/students")
 def get_students():
   return students
