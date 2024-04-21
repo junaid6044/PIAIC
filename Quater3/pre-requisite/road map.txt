@@ -1,1 +1,6 @@
 https://github.com/panaverse/learn-generative-ai/tree/main/05_microservices_all_in_one_platform/09_create_project
+
+https://github.com/panaverse/learn-generative-ai/blob/main/05_microservices_all_in_one_platform/09_create_project/Fast%20Api%20with%20Poetry%20Steps.txt
+
+
+https://github.com/panaverse/learn-generative-ai/tree/main/05_microservices_all_in_one_platform/10_microservice_helloworld
