@@ -1,5 +1,7 @@
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
+import pdb
 from sqlmodel import Session, select
 from dotenv import load_dotenv
 load_dotenv()
@@ -8,6 +10,21 @@ from .models.todos import Todos, UpdateTodo, Users
 from .config.db import create_tables, engine
 
 app = FastAPI()
+
+origins = [
+  "http://localhost",
+  "http://localhost:3000",
+  "http://localhost:8080",
+  "http://localhost:3000/todos",
+]
+
+app.add_middleware(
+  CORSMiddleware,
+  allow_origins=origins,
+  allow_credentials=True,
+  allow_methods=["*"],
+  allow_headers=["*"],
+)
 
 @app.get("/")
 def root():
@@ -29,7 +46,7 @@ def get_todos_single(todo_id:int):
   with Session(engine) as session:
     statement = select(Todos).where(Todos.id == todo_id)
     results = session.exec(statement)
-    data = results.all()
+    data = results.first()
     return data
 
 
@@ -68,11 +85,28 @@ def delete_todo(todo_id:int):
 
 @app.post("/create_user")
 def create_user(user: Users):
+  # pdb.set_trace()
   with Session(engine) as session:
     session.add(user)
     session.commit()
     session.refresh(user)
     return {"status": 200, "message": "user created successfully"}
+
+@app.get("/users")
+def get_users():
+  with Session(engine) as session:
+    statement = select(Users)
+    results = session.exec(statement)
+    data = results.all()
+    return data
+
+@app.get("/get_user/{user_id}")
+def get_user_single(user_id:int):
+  with Session(engine) as session:
+    statement = select(Users).where(Users.id == user_id)
+    results = session.exec(statement)
+    data = results.first()
+    return data
 
 def start():
   create_tables()
