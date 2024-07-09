@@ -1,0 +1,122 @@
+version: '3.8'
+
+services:
+  postgres:
+    build: ./docker/postgres
+    container_name: postgres
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: online_mart
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - mart-network
+
+  zookeeper:
+    image: wurstmeister/zookeeper
+    container_name: zookeeper
+    ports:
+      - "2181:2181"
+    networks:
+      - mart-network
+
+  kafka:
+    build: ./docker/kafka
+    container_name: kafka
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+    ports:
+      - "9092:9092"
+    networks:
+      - mart-network
+    depends_on:
+      - zookeeper
+
+  kafka-ui:
+    build: ./kafka-ui
+    container_name: kafka-ui
+    ports:
+      - "8080:8080"
+    environment:
+      KAFKA_CLUSTERS_0_NAME: local
+      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:9092
+    networks:
+      - mart-network
+    depends_on:
+      - kafka
+
+  user-service:
+    build: ./docker/services/user
+    container_name: user-service
+    networks:
+      - mart-network
+    depends_on:
+      - postgres
+      - kafka
+    ports:
+      - "8000:8000"
+
+  product-service:
+    build: ./docker/services/product
+    container_name: product-service
+    ports:
+      - "8001:8001"
+    networks:
+      - mart-network
+    depends_on:
+      - postgres
+      - kafka
+
+  order-service:
+    build: ./docker/services/order
+    container_name: order-service
+    ports:
+      - "8002:8002"
+    networks:
+      - mart-network
+    depends_on:
+      - postgres
+      - kafka
+
+  inventory-service:
+    build: ./docker/services/inventory
+    container_name: inventory-service
+    ports:
+      - "8003:8003"
+    networks:
+      - mart-network
+    depends_on:
+      - postgres
+      - kafka
+
+  notification-service:
+    build: ./docker/services/notification
+    container_name: notification-service
+    ports:
+      - "8004:8004"
+    networks:
+      - mart-network
+    depends_on:
+      - postgres
+      - kafka
+
+  payment-service:
+    build: ./docker/services/payment
+    container_name: payment-service
+    ports:
+      - "8005:8005"
+    networks:
+      - mart-network
+    depends_on:
+      - postgres
+      - kafka
+
+volumes:
+  postgres_data:
+  
+networks:
+  mart-network:

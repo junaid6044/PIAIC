@@ -1,0 +1,5 @@
+fastapi
+sqlmodel
+asyncpg
+psycopg2
+uvicorn
