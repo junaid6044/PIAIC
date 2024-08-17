@@ -9,6 +9,9 @@ readme = "README.md"
 python = "^3.12"
 langchain = "^0.2.13"
 langchain-core = "^0.2.30"
+langchain-community = "^0.2.12"
+langchain-openai = "^0.1.22"
+python-dotenv = "^1.0.1"
 
 
 [build-system]
