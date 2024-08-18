@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "class-04-18-august-2024-hugging-face-model"
+version = "0.1.0"
+description = ""
+authors = ["Muhammad Junaid <muhammadjunaid7015140@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+langchain-huggingface = "^0.0.3"
+python-dotenv = "^1.0.1"
+langchain-core = "^0.2.33"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
