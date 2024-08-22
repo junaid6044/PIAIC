@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "class-9-image-generation-and-hugging-face-transformers"
+version = "0.1.0"
+description = ""
+authors = ["Muhammad Junaid <muhammadjunaid7015140@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+openai = "^1.42.0"
+transformers = "^4.44.1"
+datasets = "^2.21.0"
+torch = "^2.4.0"
+torchvision = "^0.19.0"
+torchaudio = "^2.4.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
