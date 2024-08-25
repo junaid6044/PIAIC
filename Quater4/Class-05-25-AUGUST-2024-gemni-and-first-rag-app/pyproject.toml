@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "class-05-25-august-2024-gemni-and-first-rag-app"
+version = "0.1.0"
+description = ""
+authors = ["Muhammad Junaid <muhammadjunaid7015140@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+langchain = "^0.2.14"
+langchain-core = "^0.2.34"
+langchain-community = "^0.2.12"
+langchain-openai = "^0.1.22"
+python-dotenv = "^1.0.1"
+langchain-google-genai = "^1.0.10"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
