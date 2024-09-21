@@ -42,7 +42,7 @@ def query_index(index, llm):
   """Continuously query the index with user input, using the specified LLM."""
   while True:
     try:
-      user_input = input("How can I help you today? ").strip()
+      user_input = input("How can I help you today? or exit to (exit) ").strip()
       if user_input.lower() == 'exit':
         print("Exiting the query session.")
         break
