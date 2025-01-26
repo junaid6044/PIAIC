@@ -1,0 +1,55 @@
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(100) NOT NULL UNIQUE,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    role VARCHAR(50) CHECK (role IN ('Admin', 'Doctor', 'Nurse', 'Staff')),
+    password_hash TEXT NOT NULL
+);
+
+CREATE TABLE doctors (
+    id INT PRIMARY KEY REFERENCES users(id),
+    doctor_type VARCHAR(50) CHECK (doctor_type IN (
+        'Oncologist', 'Orthopedic Surgeon', 'Psychiatrist', 'Cardiologist', 'Dermatologist'
+    ))
+);
+
+CREATE TABLE nurses (
+    id INT PRIMARY KEY REFERENCES users(id),
+    nurse_type VARCHAR(50) CHECK (nurse_type IN (
+        'Emergency Room Nurse', 'Oncology Nurse', 'Cardiac Nurse', 'Dialysis Nurse', 'Home Health Nurse'
+    ))
+);
+
+CREATE TABLE beds (
+    id SERIAL PRIMARY KEY,
+    bed_type VARCHAR(50) CHECK (bed_type IN ('ICU', 'General')),
+    status VARCHAR(50) CHECK (status IN ('Available', 'Occupied', 'Maintenance')),
+    room_number VARCHAR(10)
+);
+
+CREATE TABLE medical_equipment (
+    id SERIAL PRIMARY KEY,
+    equipment_type VARCHAR(50) CHECK (equipment_type IN ('Ventilator', 'Oxygen Tank', 'Dialysis Machine')),
+    status VARCHAR(50) CHECK (status IN ('Available', 'In Use', 'Under Maintenance')),
+    location TEXT,
+    maintenance_due_at TIMESTAMP
+);
+
+CREATE TABLE patients (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    condition TEXT NOT NULL,
+    admitted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    discharged_at TIMESTAMP,
+    assigned_bed_id INT REFERENCES beds(id),
+    assigned_equipment_id INT REFERENCES medical_equipment(id)
+);
+
+CREATE TABLE ai_recommendations (
+    id SERIAL PRIMARY KEY,
+    recommended_by INT REFERENCES users(id),
+    patient_id INT REFERENCES patients(id),
+    recommended_bed_id INT REFERENCES beds(id),
+    recommended_equipment_id INT REFERENCES medical_equipment(id),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

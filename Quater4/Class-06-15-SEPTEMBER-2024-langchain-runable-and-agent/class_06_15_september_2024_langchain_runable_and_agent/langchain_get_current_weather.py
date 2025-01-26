@@ -84,9 +84,25 @@ agent = initialize_agent(
   max_iterations=1,
 )
 
-result = agent.run("what is the current weather of Faisalabad")
-# result = agent.run("first number is 5 and second number is double of first number")
-# result = agent.run("what is the current USA President")
-# result = agent.run("Please explain Aerodynamics in Physics")
-# result = agent.run("Please explain cube")
-print(result)
+# result = agent.run("what is the current weather of Faisalabad")
+# # result = agent.run("first number is 5 and second number is double of first number")
+# # result = agent.run("what is the current USA President")
+# # result = agent.run("Please explain Aerodynamics in Physics")
+# # result = agent.run("Please explain cube")
+# # result = agent.run("Please explain Generative AI")
+# print(result)
+
+
+
+# Infinite loop to keep asking for city input
+while True:
+  prompt = input("Enter the name of the city (or type 'exit' to quit): ").strip()
+  
+  # Break the loop if the user types "exit" or "quit"
+  if prompt.lower() in ["exit", "quit"]:
+    print("Goodbye!")
+    break
+
+  # Run the agent to get the weather for the input city
+  result = agent.run(f"{prompt}")
+  print(result)

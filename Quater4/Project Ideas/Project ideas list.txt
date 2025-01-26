@@ -1,0 +1,13 @@
+AI Chatbot for eCommerce Support
+Create a support chatbot for an eCommerce store that helps customers with order tracking, returns, and product queries by retrieving relevant information from the company’s knowledge base.
+
+
+Hospital Bed and Equipment Availability Tracker
+
+Create a real-time tracker for hospitals to manage bed occupancy and equipment availability, using AI to suggest optimal resource allocation based on patient needs.
+
+
+
+Intelligent Health Record Management
+
+Build a system for hospitals to manage patient records efficiently. The AI helps doctors retrieve relevant patient history, lab results, and other data by searching through hospital databases.
